@@ -4,13 +4,18 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 100vh;
-  background-image: url('/fondo.jpg');
-  background-size: cover;
-  background-position: center;
+  /* height: 100vh; */
   color: white;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
   padding: 1rem;
+}
+
+.hero-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 
@@ -30,5 +35,8 @@
 }
 
 .hero-img{
-  width: ;
+  width: 70%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }

@@ -1,5 +1,6 @@
 ---
 import Navbar from '../components/Navbar.astro';
+import SocialLinks from '../components/SocialLinks.astro';
 ---
 
 <!doctype html>
@@ -13,8 +14,18 @@ import Navbar from '../components/Navbar.astro';
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
+	<link
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+		integrity="sha512-/W9o6r2VjZQzr9fAgBap9NRXJd3GdKfOV2RPfD49uGwIv6pkoKnH/VKmgHj7AsvQs+02aFK0Abxl0Kq4+0qV6g=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	/>
+
+
+
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>Vilevo Band Official Page</title>
   </head>
   <body>
     <Navbar />
@@ -22,6 +33,7 @@ import Navbar from '../components/Navbar.astro';
       <slot />
     </main>
   </body>
+
 </html>
 
 <style>
