@@ -1,59 +1,24 @@
-<style>
-  .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-    background-image: url('/fondo.jpg'); /* Asegúrate de tener una imagen en public/fondo.jpg */
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    padding: 1rem;
-  }
-
-  h1 {
-    font-size: 4rem;
-    margin-bottom: 0.5rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .btn {
-    background-color: #e50914;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 999px;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-
-  .btn:hover {
-    background-color: #b0060f;
-  }
-
-  @media (max-width: 600px) {
-    h1 {
-      font-size: 2.5rem;
-    }
-
-    h2 {
-      font-size: 1rem;
-    }
-  }
-</style>
+---
+import '../styles/components/HeroStyle.css';
+import '../styles/global.css';
+---
 
 <section class="hero">
-  <h1>VILEVO</h1>
-  <h2>Rock alternativo desde CDMX</h2>
-  <button class="btn" onclick="window.open('https://open.spotify.com', '_blank')">
-    Escúchanos en Spotify
-  </button>
+    <div class="hero-content">
+        <div class="">
+            <h1>VILEVO</h1>
+            <h2>POST PUNK desde Neza</h2>
+        </div>
+
+        <div>
+            <img class="hero-img" src="../../img/VilevoHome.jpg" alt="Vilevo Home">
+        </div>
+
+        <div>
+            <button class="btn" onclick="window.open('https://open.spotify.com', '_blank')">
+              Escúchanos en Spotify
+            </button>
+        </div>
+
+    </div>
 </section>
