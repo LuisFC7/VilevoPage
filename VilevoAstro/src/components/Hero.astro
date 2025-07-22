@@ -1,25 +1,28 @@
 ---
 import '../styles/components/HeroStyle.css';
 import '../styles/global.css';
+import '../styles/components/SocialLinks.css';
+
+import { Image } from 'astro:assets';
+import vilevoLogo from '../assets/LogoVilevo.png';
+import vilevoHome from '../assets/VilevoHome2.jpg';
 ---
 
 <section class="hero">
-    <div class="hero-content">
-        <div class="hero-text">
-            <!-- <h1>VILEVO</h1> -->
-            <img src="../../img/VilevoLogo.jpg" alt="Vilevo Logo">
-            <h2>POST PUNK desde Neza</h2>
-        </div>
+  <div class="hero-content">
+    <!-- <div class="hero-text">
+      <Image class="hero-img" src={vilevoLogo} alt="Vilevo Logo" width={300} height={100} />
+      <h2>POST PUNK desde Neza</h2>
+    </div> -->
 
-        <div class="hero-cont-img">
-            <img class="hero-img" src="../../img/VilevoHome2.jpg" alt="Vilevo Home">
-        </div>
-
-        <div class="hero-button">
-            <button class="btn" onclick="window.open('https://open.spotify.com', '_blank')">
-              Escúchanos en Spotify
-            </button>
-        </div>
-        
+    <div class="hero-cont-img">
+      <Image class="hero-img" src={vilevoHome} alt="Vilevo Home" width={800} height={600} />
     </div>
+
+    <div class="hero-button">
+      <button class="btn" onclick="window.open('https://open.spotify.com/artist/6OzslTsH7njS6G5Npwzeyw?si=k1dHd3o7RsOeqtG_F76SNQ&nd=1&dlsi=ef8cdc1e41284975', '_blank')">
+        Escúchanos en Spotify
+      </button>
+    </div>
+  </div>
 </section>

@@ -16,6 +16,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  gap: 1.5rem;
 }
 
 
@@ -35,7 +36,7 @@
 }
 
 .hero-img{
-  width: 70%;
+  width: 50%;
   height: auto;
   display: block;
   margin: 0 auto;
