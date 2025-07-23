@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css'; 
+import '../styles/Merch.css';
+
+import { Image } from 'astro:assets';
+import TS01 from '../assets/TS01.png';
+
+import ProductItem from '../components/ProductItem.astro';
+
+---
+
+<Layout>
+    <div class="merch-container">
+        <h1 class="merch-title">Merch Oficial</h1>
+
+        <ProductItem imgSrc={TS01} altText="T-Shirt Negra" productName="T-Shirt Vilevo Neza" />
+
+        
+    </div>
+</Layout>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("cantidad");
+    document.getElementById("btn-mas").addEventListener("click", () => {
+      const cantidad = parseInt(input.value);
+      if (!isNaN(cantidad)) input.value = cantidad + 1;
+    });
+
+    document.getElementById("btn-menos").addEventListener("click", () => {
+      const cantidad = parseInt(input.value);
+      if (!isNaN(cantidad) && cantidad > 1) input.value = cantidad - 1;
+    });
+  });
+</script>

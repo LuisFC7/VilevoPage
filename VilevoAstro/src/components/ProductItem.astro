@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import QuantityCounter from './QuantityCounter.jsx';
+
+const { imgSrc, altText, productName } = Astro.props;
+import '../styles/Merch.css';
+---
+
+<div class="merch-description">
+  <div class="merch-img">
+    <Image class="merch-img" src={imgSrc} alt={altText} />
+  </div>
+
+  <div class="merch-exp">
+    <p>{productName}</p>
+  </div>
+
+  <div class="merch-controls">
+    <!-- Selección de Talla -->
+    <label for="talla">Talla:</label>
+    <select id="talla" name="talla" class="talla-select">
+      <option value="">Selecciona una talla</option>
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <!-- Contador React (Astro Island) -->
+    <QuantityCounter client:load />
+  </div>
+</div>

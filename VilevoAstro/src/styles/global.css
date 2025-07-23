@@ -5,6 +5,8 @@ body{
 /* Estilos generales (desktop por defecto) */
 h1 {
   font-size: 4rem;
+  font-family: 'Playfair Display';
+  color: #fff;
 }
 
 h2 {

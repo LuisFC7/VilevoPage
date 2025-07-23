@@ -1,0 +1,122 @@
+.merch-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.merch-description{
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+    padding: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.merch-img{
+    width: 70%;
+    height: auto;
+}
+
+.merch-exp{
+    font-family:'Noto Sans';
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+
+.merch-controls{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+}
+.merch-controls label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  color: #e0e0e0;
+  font-family:'Noto Sans';
+}
+
+/* Estilo del select de talla */
+.talla-select {
+  background-color: #121212;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.talla-select:hover,
+.talla-select:focus {
+  border-color: #777;
+}
+
+/* Controles de cantidad */
+.cantidad-control {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btn-cantidad {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-cantidad:hover {
+  background-color: #333;
+  border-color: #666;
+}
+
+.cantidad-input {
+  width: 3rem;
+  text-align: center;
+  background: #121212;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+#cantidad {
+  width: 3rem;
+  background-color: #121212;
+  color: #fff;
+  border: 1px solid #333;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  padding: 0.4rem;
+}
+
+/* Chrome, Safari, Edge */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  display: none;
+  -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
