@@ -3,8 +3,15 @@ import Layout from '../layouts/Layout.astro';
 import '../styles/global.css'; 
 import '../styles/Merch.css';
 
+
 import { Image } from 'astro:assets';
 import TS01 from '../assets/TS01.png';
+import TS02 from '../assets/TS02.png';
+import TS03 from '../assets/TS03.png';
+import TB01 from '../assets/TB01.png';
+import TB02 from '../assets/TB02.png';
+import CV01 from '../assets/CV01.png';
+import AB01 from '../assets/AB01.png';
 
 import ProductItem from '../components/ProductItem.astro';
 
@@ -12,25 +19,20 @@ import ProductItem from '../components/ProductItem.astro';
 
 <Layout>
     <div class="merch-container">
-        <h1 class="merch-title">Merch Oficial</h1>
+        <div>
+            <h1 class="merch-title">MERCH OFICIAL</h1>
+        </div>
 
-        <ProductItem imgSrc={TS01} altText="T-Shirt Negra" productName="T-Shirt Vilevo Neza" />
+        <div class="products-grid">
+            <ProductItem imgSrc={TS01} altText="T-Shirt Negra" productName="T-Shirt Vilevo Neza" price={29.70} showSize={true} />
+            <ProductItem imgSrc={TS02} altText="T-Shirt Negra" productName="T-Shirt Vilevo Space Wave" price={29.70} showSize={true} />
+            <ProductItem imgSrc={TS03} altText="T-Shirt Negra" productName="T-Shirt Vilevo Logo" price={29.70} showSize={true} />
+            <ProductItem imgSrc={TB01} altText="Tote Bag" productName="Tote Bag Vilevo M1" price={29.70} showSize={false} />
+            <ProductItem imgSrc={TB02} altText="Tote Bag" productName="Tote Bag Vilevo M2" price={29.70} showSize={false} />
+            <ProductItem imgSrc={CV01} altText="Gorra" productName="Cap Vilevo Black " price={29.70} showSize={false} />
+            <ProductItem imgSrc={AB01} altText="Album" productName="Album Vilevo" price={29.70} showSize={false} />
 
+        </div>
         
     </div>
 </Layout>
-
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const input = document.getElementById("cantidad");
-    document.getElementById("btn-mas").addEventListener("click", () => {
-      const cantidad = parseInt(input.value);
-      if (!isNaN(cantidad)) input.value = cantidad + 1;
-    });
-
-    document.getElementById("btn-menos").addEventListener("click", () => {
-      const cantidad = parseInt(input.value);
-      if (!isNaN(cantidad) && cantidad > 1) input.value = cantidad - 1;
-    });
-  });
-</script>

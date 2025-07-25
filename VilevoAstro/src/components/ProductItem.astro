@@ -2,31 +2,48 @@
 import { Image } from 'astro:assets';
 import QuantityCounter from './QuantityCounter.jsx';
 
-const { imgSrc, altText, productName } = Astro.props;
+const { imgSrc, altText, productName, price, showSize } = Astro.props;
+
 import '../styles/Merch.css';
 ---
 
-<div class="merch-description">
-  <div class="merch-img">
-    <Image class="merch-img" src={imgSrc} alt={altText} />
-  </div>
 
-  <div class="merch-exp">
-    <p>{productName}</p>
-  </div>
+  <div class="merch-description">
+    <div class="merch-img">
+      <Image class="merch-img" src={imgSrc} alt={altText} />
+    </div>
 
-  <div class="merch-controls">
-    <!-- Selección de Talla -->
-    <label for="talla">Talla:</label>
-    <select id="talla" name="talla" class="talla-select">
-      <option value="">Selecciona una talla</option>
-      <option value="S">S</option>
-      <option value="M">M</option>
-      <option value="L">L</option>
-      <option value="XL">XL</option>
-    </select>
+    <div class="merch-info">
+      <div class="merch-exp">
+        <h3>{productName}</h3>
+        <div class="merch-price">${price}</div>
+      </div>
 
-    <!-- Contador React (Astro Island) -->
-    <QuantityCounter client:load />
+      <div class="merch-controls">
+        <!-- Selección de Talla -->
+        {showSize && (
+          <div class="control-group">
+            <label for="talla">Talla:</label>
+            <select id="talla" name="talla" class="talla-select">
+              <option value="">Selecciona una talla</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+          </div>
+        )}
+
+
+        <!-- Contador React (Astro Island) -->
+        <div class="control-group">
+          <QuantityCounter client:load />
+        </div>
+
+        <!-- Botón Añadir al Carrito -->
+        <button class="add-to-cart-btn">
+          Añadir al carrito <i class="fas fa-shopping-cart"></i>
+        </button>
+      </div>
+    </div>
   </div>
-</div>
