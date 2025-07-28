@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets';
-import QuantityCounter from './QuantityCounter.tsx';
+import { Image } from "astro:assets";
+import QuantityCounter from "./QuantityCounter.tsx";
 
 const { imgSrc, altText, productName, price, showSize, id } = Astro.props;
 
-import '../styles/Merch.css';
+import "../styles/Merch.css";
 ---
 
 <div class="merch-description" data-product-id={id}>
@@ -20,27 +20,31 @@ import '../styles/Merch.css';
 
     <div class="merch-controls">
       <!-- Selección de Talla -->
-      {showSize && (
-        <div class="control-group">
-          <label for={`talla-${id}`}>Talla:</label>
-          <select id={`talla-${id}`} name="talla" class="talla-select">
-            <option value="">Selecciona una talla</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-          </select>
-        </div>
-      )}
+      {
+        showSize && (
+          <div class="control-group">
+            <label for={`talla-${id}`}>Talla:</label>
+            <select id={`talla-${id}`} name="talla" class="talla-select">
+              <option value="">Selecciona una talla</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+          </div>
+        )
+      }
 
       <!-- Contador React (Astro Island) -->
       <div class="control-group">
-        <QuantityCounter 
-          client:load 
-          productId={id} 
+        <QuantityCounter
+          client:load
+          productId={id}
           initialQuantity={1}
           onQuantityChange={(quantity) => {
-            const productElement = document.querySelector(`[data-product-id="${id}"]`);
+            const productElement = document.querySelector(
+              `[data-product-id="${id}"]`
+            );
             if (productElement) {
               // Solución definitiva para dataset
               const htmlElement = productElement as unknown as HTMLElement;
@@ -59,45 +63,46 @@ import '../styles/Merch.css';
 </div>
 
 <script is:inline>
-// Versión JavaScript puro para el script inline
-document.addEventListener('click', function(e) {
-  function isHTMLElement(node) {
-    return node && node.nodeType === Node.ELEMENT_NODE;
-  }
-
-  var target = e.target;
-  if (!isHTMLElement(target)) return;
-  
-  if (target.classList.contains('add-to-cart-btn')) {
-    var productId = target.getAttribute('data-product-id');
-    var productElement = target.closest('.merch-description');
-    
-    if (productId && productElement) {
-      // Obtener cantidad de forma segura
-      var quantity = 1;
-      if (productElement.dataset && productElement.dataset.quantity) {
-        quantity = parseInt(productElement.dataset.quantity) || 1;
-      }
-      
-      // Obtener datos del producto
-      var productData = {
-  id: productId,
-  name: productElement.querySelector('h3')?.textContent || '',
-  price: parseFloat((productElement.querySelector('.merch-price')?.textContent || '0').replace('$', '')),
-  size: productElement.querySelector('.talla-select')?.value || 'N/A',
-  quantity: quantity
-};
-
-      // Validar talla si es requerida
-      if (productElement.querySelector('.talla-select') && !productData.size) {
-        alert('Por favor selecciona una talla');
-        return;
-      }
-      
-      // Disparar eventos
-      window.dispatchEvent(new CustomEvent('addToCart', { detail: productData }));
-      window.dispatchEvent(new CustomEvent('resetCounter', { detail: { productId } }));
+  // Versión JavaScript puro para el script inline
+  document.addEventListener("click", function (e) {
+    function isHTMLElement(node) {
+      return node && node.nodeType === Node.ELEMENT_NODE;
     }
+
+    var target = e.target;
+    if (!isHTMLElement(target)) return;
+
+    if (target.classList.contains('add-to-cart-btn')) {
+  var productId = target.getAttribute('data-product-id');
+  var productElement = target.closest('.merch-description');
+
+  if (productId && productElement) {
+    // ✅ Leer directamente desde el input de cantidad
+    var quantityInput = productElement.querySelector('.cantidad-input');
+    var quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
+
+    // Obtener datos del producto
+    var productData = {
+      id: productId,
+      name: productElement.querySelector('h3')?.textContent || '',
+      price: parseFloat(
+        (productElement.querySelector('.merch-price')?.textContent || '0')
+          .replace('$', '')
+      ),
+      size: productElement.querySelector('.talla-select')?.value || 'N/A',
+      quantity: quantity
+    };
+
+    // Validar talla si es requerida
+    if (productElement.querySelector('.talla-select') && !productData.size) {
+      alert('Por favor selecciona una talla');
+      return;
+    }
+
+    // Disparar eventos
+    window.dispatchEvent(new CustomEvent('addToCart', { detail: productData }));
+    window.dispatchEvent(new CustomEvent('resetCounter', { detail: { productId } }));
   }
-});
+}
+  });
 </script>
