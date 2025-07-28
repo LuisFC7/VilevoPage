@@ -17,13 +17,14 @@ import ProductItem from '../components/ProductItem.astro';
 import Cart from '../components/Cart.jsx';
 import '../styles/Cart.css'; // O el nombre de tu archivo
 
-
 ---
 
 <Layout>
     <div class="merch-container">
         <div>
             <h1 class="merch-title">MERCH OFICIAL</h1>
+
+            <Cart client:load />
         </div>
 
         <!-- <div class="products-grid">
@@ -37,16 +38,14 @@ import '../styles/Cart.css'; // O el nombre de tu archivo
 
         </div> -->
 
-        <Cart client:load />
-
         <div class="products-grid">
-            <ProductItem id="ts1" imgSrc={TS01} altText="T-Shirt Negra" productName="T-Shirt Vilevo Neza" price={29.70} showSize={true} />
-            <ProductItem id="ts2" imgSrc={TS02} altText="T-Shirt Negra" productName="T-Shirt Vilevo Space Wave" price={29.70} showSize={true} />
-            <ProductItem id="ts3" imgSrc={TS03} altText="T-Shirt Negra" productName="T-Shirt Vilevo Logo" price={29.70} showSize={true} />
-            <ProductItem id="tb1" imgSrc={TB01} altText="Tote Bag" productName="Tote Bag Vilevo M1" price={29.70} showSize={false} />
-            <ProductItem id="tb2" imgSrc={TB02} altText="Tote Bag" productName="Tote Bag Vilevo M2" price={29.70} showSize={false} />
-            <ProductItem id="cv1" imgSrc={CV01} altText="Gorra" productName="Cap Vilevo Black" price={29.70} showSize={false} />
-            <ProductItem id="ab1" imgSrc={AB01} altText="Album" productName="Album Vilevo" price={29.70} showSize={false} />
+            <ProductItem id="ts1" imgSrc={TS01} altText="T-Shirt Negra" productName="T-Shirt Vilevo Neza" price={250.00} showSize={true} />
+            <ProductItem id="ts2" imgSrc={TS02} altText="T-Shirt Negra" productName="T-Shirt Vilevo Space Wave" price={250.00} showSize={true} />
+            <ProductItem id="ts3" imgSrc={TS03} altText="T-Shirt Negra" productName="T-Shirt Vilevo Logo" price={250.00} showSize={true} />
+            <ProductItem id="tb1" imgSrc={TB01} altText="Tote Bag" productName="Tote Bag Vilevo M1" price={150.00} showSize={false} />
+            <ProductItem id="tb2" imgSrc={TB02} altText="Tote Bag" productName="Tote Bag Vilevo M2" price={150.00} showSize={false} />
+            <ProductItem id="cv1" imgSrc={CV01} altText="Gorra" productName="Cap Vilevo Black" price={100.00} showSize={false} />
+            <ProductItem id="ab1" imgSrc={AB01} altText="Album" productName="Album Vilevo" price={200.00} showSize={false} />
         </div>
 
     </div>

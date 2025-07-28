@@ -109,9 +109,20 @@ export default function Cart() {
                 ))}
               </ul>
               <div className="cart-total">
-                <strong>Total: ${total.toFixed(2)}</strong>
+                <strong>Subtotal: ${total.toFixed(2)}</strong>
               </div>
-              <button className="checkout-btn">Proceder al Pago</button>
+              {/* <button className="checkout-btn">Proceder al Pago</button> */}
+              <button
+                className="checkout-btn"
+                onClick={() => {
+                  localStorage.setItem('cartData', JSON.stringify(cartItems));
+            
+                  window.location.href = '/Checkout'; // ruta de tu formulario
+                }}
+              >
+                Proceder al Pago
+              </button>
+
             </>
           )}
         </div>
