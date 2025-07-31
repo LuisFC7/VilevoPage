@@ -194,31 +194,29 @@
     }
 }
 
-.products-grid{
+.products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 7rem;
-
 }
 
-
-/* Vista para pantallas pequeñas (smartphones) */
-@media (max-width: 768px) {
+/* Para pantallas pequeñas: 0 - 767px */
+@media (max-width: 767px) {
   .products-grid {
-    grid-template-columns: 1fr; /* Solo 1 columna */
-    gap: 3rem; /* Espacio más compacto */
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Para pantallas medianas: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
   }
 }
 
 /* CARRITO */
-/* Estilos del carrito */
-.cart-container {
-  /* position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000; */
-}
-
 
 
 .cart-toggle {
