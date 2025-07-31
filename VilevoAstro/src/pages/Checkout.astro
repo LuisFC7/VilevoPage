@@ -63,17 +63,26 @@ import '../styles/Checkout.css';
         <input type="tel" name="telefono" placeholder="Número telefónico" required />
       </label>
 
-      <!-- <button type="submit">Enviar Pedido</button> -->
-      <button type="button" id="enviarPedido">Enviar Pedido</button>
+      <button type="submit">Enviar Pedido</button>
+      <!-- <button type="button" id="enviarPedido">Enviar Pedido</button> -->
 
     </form>
   </div>
 </Layout>
 
 <script>
-  document.getElementById('enviarPedido').addEventListener('click', function () {
-    const form = document.querySelector('.checkout-form');
+  document.querySelector('.checkout-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Evita envío real si lo deseas
 
+    const form = event.target;
+
+    // Validación automática del navegador
+    if (!form.checkValidity()) {
+      form.reportValidity(); // Muestra mensajes de error del navegador
+      return;
+    }
+
+    // Extrae los valores
     const nombre = form.nombre_completo.value;
     const domicilio = form.domicilio.value;
     const numero = form.numero.value;
@@ -85,7 +94,7 @@ import '../styles/Checkout.css';
     const entidad = form.entidad_federativa.value;
     const telefono = form.telefono.value;
 
-    // Leer productos desde cartData
+    // Productos desde localStorage
     let productos = [];
     try {
       const data = localStorage.getItem("cartData");
@@ -94,19 +103,16 @@ import '../styles/Checkout.css';
       console.error("Error leyendo cartData:", e);
     }
 
-    // Detalle del carrito
-    let detalleProductos = productos.map(p => 
+    let detalleProductos = productos.map(p =>
       `🛍️ ${p.name} (Talla: ${p.size}) x${p.quantity} - $${p.price * p.quantity}`
     ).join('\n');
 
-    // Total
     const total = productos.reduce((acc, p) => acc + (p.price * p.quantity), 0);
 
     if (productos.length === 0) {
       detalleProductos = '🛒 Carrito vacío';
     }
 
-    // Mensaje completo
     const mensaje = `Hola, quiero hacer un pedido:
 👤 Nombre: ${nombre}
 🏠 Dirección: ${domicilio}, Nº ${numero}, Col. ${colonia}, CP ${cp}
@@ -118,7 +124,6 @@ ${detalleProductos}
 
 💵 Subtotal: $${total.toFixed(2)}`;
 
-    // Tu número de WhatsApp (código país + número)
     const numeroWhatsApp = "525566230889";
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');

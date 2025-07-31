@@ -63,46 +63,52 @@ import "../styles/Merch.css";
 </div>
 
 <script is:inline>
-  // Versión JavaScript puro para el script inline
-  document.addEventListener("click", function (e) {
-    function isHTMLElement(node) {
-      return node && node.nodeType === Node.ELEMENT_NODE;
-    }
+  // Evita registrar el listener múltiples veces
+  if (!window.__addToCartListenerRegistered) {
+    window.__addToCartListenerRegistered = true;
 
-    var target = e.target;
-    if (!isHTMLElement(target)) return;
+    document.addEventListener("click", function (e) {
+      function isHTMLElement(node) {
+        return node && node.nodeType === Node.ELEMENT_NODE;
+      }
 
-    if (target.classList.contains('add-to-cart-btn')) {
-  var productId = target.getAttribute('data-product-id');
-  var productElement = target.closest('.merch-description');
+      var target = e.target;
+      if (!isHTMLElement(target)) return;
 
-  if (productId && productElement) {
-    // ✅ Leer directamente desde el input de cantidad
-    var quantityInput = productElement.querySelector('.cantidad-input');
-    var quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
+      if (target.classList.contains('add-to-cart-btn')) {
+        e.preventDefault();
+        e.stopPropagation();
 
-    // Obtener datos del producto
-    var productData = {
-      id: productId,
-      name: productElement.querySelector('h3')?.textContent || '',
-      price: parseFloat(
-        (productElement.querySelector('.merch-price')?.textContent || '0')
-          .replace('$', '')
-      ),
-      size: productElement.querySelector('.talla-select')?.value || 'N/A',
-      quantity: quantity
-    };
+        var productId = target.getAttribute('data-product-id');
+        var productElement = target.closest('.merch-description');
 
-    // Validar talla si es requerida
-    if (productElement.querySelector('.talla-select') && !productData.size) {
-      alert('Por favor selecciona una talla');
-      return;
-    }
+        if (productId && productElement) {
+          var quantityInput = productElement.querySelector('.cantidad-input');
+          var quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
 
-    // Disparar eventos
-    window.dispatchEvent(new CustomEvent('addToCart', { detail: productData }));
-    window.dispatchEvent(new CustomEvent('resetCounter', { detail: { productId } }));
+          const tallaSelect = productElement.querySelector('.talla-select');
+          const tallaValue = tallaSelect?.value ?? '';
+
+          if (tallaSelect && tallaValue === "") {
+            alert('Por favor selecciona una talla');
+            return;
+          }
+
+          var productData = {
+            id: productId,
+            name: productElement.querySelector('h3')?.textContent || '',
+            price: parseFloat(
+              (productElement.querySelector('.merch-price')?.textContent || '0')
+                .replace('$', '')
+            ),
+            size: tallaValue || 'N/A',
+            quantity: quantity
+          };
+
+          window.dispatchEvent(new CustomEvent('addToCart', { detail: productData }));
+          window.dispatchEvent(new CustomEvent('resetCounter', { detail: { productId } }));
+        }
+      }
+    });
   }
-}
-  });
 </script>

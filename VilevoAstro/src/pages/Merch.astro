@@ -21,23 +21,12 @@ import '../styles/Cart.css'; // O el nombre de tu archivo
 
 <Layout>
     <div class="merch-container">
-        <div>
+        <div class="merch-shared">
             <h1 class="merch-title">MERCH OFICIAL</h1>
 
             <Cart client:load />
         </div>
-
-        <!-- <div class="products-grid">
-            <ProductItem imgSrc={TS01} altText="T-Shirt Negra" productName="T-Shirt Vilevo Neza" price={29.70} showSize={true} />
-            <ProductItem imgSrc={TS02} altText="T-Shirt Negra" productName="T-Shirt Vilevo Space Wave" price={29.70} showSize={true} />
-            <ProductItem imgSrc={TS03} altText="T-Shirt Negra" productName="T-Shirt Vilevo Logo" price={29.70} showSize={true} />
-            <ProductItem imgSrc={TB01} altText="Tote Bag" productName="Tote Bag Vilevo M1" price={29.70} showSize={false} />
-            <ProductItem imgSrc={TB02} altText="Tote Bag" productName="Tote Bag Vilevo M2" price={29.70} showSize={false} />
-            <ProductItem imgSrc={CV01} altText="Gorra" productName="Cap Vilevo Black " price={29.70} showSize={false} />
-            <ProductItem imgSrc={AB01} altText="Album" productName="Album Vilevo" price={29.70} showSize={false} />
-
-        </div> -->
-
+        
         <div class="products-grid">
             <ProductItem id="ts1" imgSrc={TS01} altText="T-Shirt Negra" productName="T-Shirt Vilevo Neza" price={250.00} showSize={true} />
             <ProductItem id="ts2" imgSrc={TS02} altText="T-Shirt Negra" productName="T-Shirt Vilevo Space Wave" price={250.00} showSize={true} />
