@@ -1,0 +1,114 @@
+.galleryContainer {
+  max-width: 90vw;
+  max-height: 80vh;
+  margin: 40px auto 60px;
+  text-align: center;
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  color: white;
+  user-select: none;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: none; /* ocultamos por default */
+}
+
+.image.active {
+  display: block; /* mostramos solo la imagen activa */
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 28px;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.button.left {
+  left: -50px;
+}
+
+.button.right {
+  right: -50px;
+}
+
+.dotsContainer {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  background-color: #888;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #fff;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .galleryContainer {
+    max-width: 95vw;
+    padding: 15px;
+  }
+
+  .button.left {
+    left: 5px;
+    top: 45%;
+  }
+
+  .button.right {
+    right: 5px;
+    top: 45%;
+  }
+
+  .image {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button {
+    padding: 10px;
+    font-size: 22px;
+  }
+
+  .image {
+    max-height: 200px;
+  }
+}

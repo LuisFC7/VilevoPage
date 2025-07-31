@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GalleryImg from '../components/GalleryImg.jsx';
+
+import VilevoGallery1 from '../assets/VilevoGallery1.webp';
+import VilevoGallery2 from '../assets/VilevoGallery2.webp';
+import VilevoGallery3 from '../assets/VilevoGallery3.jpg';
+import VilevoGallery4 from '../assets/VilevoGallery4.jpg';
+import VilevoGallery5 from '../assets/VilevoGallery5.jpg';
+import VilevoGallery6 from '../assets/VilevoGallery6.jpg';
+import VilevoGallery7 from '../assets/VilevoGallery7.webp';
+import VilevoGallery8 from '../assets/VilevoGallery8.webp';
+import VilevoGallery9 from '../assets/VilevoGallery9.webp';
+
+const images = [
+  VilevoGallery1.src,
+  VilevoGallery2.src,
+  VilevoGallery3.src,
+  VilevoGallery4.src,
+  VilevoGallery5.src,
+  VilevoGallery6.src,
+  VilevoGallery7.src,
+  VilevoGallery8.src,
+  VilevoGallery9.src,
+];
+---
+
+<Layout>
+  <GalleryImg client:load images={images} />
+</Layout>

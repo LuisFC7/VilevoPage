@@ -12,9 +12,11 @@
     "@astrojs/image": "^0.18.0",
     "@astrojs/react": "^4.3.0",
     "@fortawesome/fontawesome-free": "^7.0.0",
+    "@splidejs/splide": "^4.1.4",
     "astro": "^5.12.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "swiper": "^11.2.10"
   },
   "devDependencies": {
     "@types/react": "^19.1.8"

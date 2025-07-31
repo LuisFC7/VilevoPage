@@ -1,8 +1,61 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '../styles/Events.css';
+import { Image } from 'astro:assets';
+import VilevoTour from '../assets/VilevoTour.jpg';
 
+const eventos = [
+  {
+    fecha: '8 AGOSTO',
+    ciudad: 'L.A CA',
+    lugar: 'CATCH ONE ROOM 5',
+    link: 'https://dice.fm/partner/dice/event/dkn53q-klub-nocturno-8th-aug-catch-one-los-angeles-tickets?fbclid=PAQ0xDSwL3VSVleHRuA2FlbQIxMQABp73hGJSTJzyaSS-vsmUA-HPF9eBHIC1qdzogdlRHTW4mP14DjlyH_cId-u1Z_aem_YoTPDnRgQcH2rvCrPtNxUA',
+  },
+  {
+    fecha: '15 AGOSTO',
+    ciudad: 'ZACATECAS',
+    lugar: 'BAR ELVIS',
+    link: 'https://api.whatsapp.com/send/?phone=5513399320&text&type=phone_number&app_absent=0',
+  },
+  {
+    fecha: '16 AGOSTO',
+    ciudad: 'SAN LUIS POTOSÍ',
+    lugar: 'PANTEONERA MAUSOLEO',
+    link: 'https://api.whatsapp.com/send/?phone=5513399320&text&type=phone_number&app_absent=0',
+  },
+  {
+    fecha: '22 AGOSTO',
+    ciudad: 'CUAUTITLÁN IZCALLI',
+    lugar: 'EL TALLER',
+    link: 'https://www.passline.com/eventos/vilevo-en-cuatitlan-izcalli',
+  },
+  {
+    fecha: '6 SEPTIEMBRE',
+    ciudad: 'COACALCO',
+    lugar: 'SERPENTINO',
+    link: 'https://api.whatsapp.com/send?phone=5215519599939&text=Quiero%20entradas%20para%20Vilevo%20%2B%20Somos%20Turistas%20en%20Coacalco%20',
+  },
+  {
+    fecha: '15 NOVIEMBRE',
+    ciudad: 'TOLUCA',
+    lugar: 'FORO LANDÓ',
+    link: 'https://www.passline.com/eventos/vilevo-en-toluca',
+  }
+];
 ---
 
 <Layout>
+  <section class="eventos-section">
+    <Image class="eventos-img" src={VilevoTour} alt="Vilevo Home" />
+    <h1 class="titulo">TOUR VILEVO</h1>
 
+    <div class="eventos-container">
+      {eventos.map((evento) => (
+        <a href={evento.link} class="evento-card" target="_blank">
+          <p class="evento-fecha">{evento.fecha} - {evento.ciudad}</p>
+          <p class="evento-lugar">{evento.lugar}</p>
+        </a>
+      ))}
+    </div>
+  </section>
 </Layout>
