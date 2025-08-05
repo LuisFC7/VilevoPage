@@ -1,41 +1,166 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import '../styles/global.css'; 
-import '../styles/Merch.css';
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+import "../styles/Merch.css";
+import GalleryImg from "../components/GalleryImg.jsx";
+import VilevoMerch1 from "../../public/Gallery/MTS1.jpg";
+import VilevoMerch2 from "../../public/Gallery/MTS2.jpg";
+import VilevoMerch3 from "../../public/Gallery/MTS3.jpg";
+import VilevoMerch4 from "../../public/Gallery/MTS4.jpg";
+import VilevoMerch5 from "../../public/Gallery/MTS5.jpg";
+import VilevoMerch6 from "../../public/Gallery/mix.jpg";
+import VilevoMerch7 from "../../public/Gallery/mix2.jpg";
+import VilevoMerch8 from "../../public/Gallery/mix3.jpg";
+import VilevoMerch9 from "../../public/Gallery/TS02.jpg";
+import VilevoMerch10 from "../../public/Gallery/TS03.jpg";
 
+const images = [
+  //   VilevoMerch1.src,
+  VilevoMerch8.src,
+  VilevoMerch6.src,
+  VilevoMerch9.src,
+  VilevoMerch7.src,
+  VilevoMerch10.src,
+  VilevoMerch2.src,
+  VilevoMerch3.src,
+  VilevoMerch4.src,
+  VilevoMerch5.src,
+];
 
-import { Image } from 'astro:assets';
-import TS01 from '../assets/TS01.png';
-import TS02 from '../assets/TS02.png';
-import TS03 from '../assets/TS03.png';
-import TB01 from '../assets/TB01.png';
-import TB02 from '../assets/TB02.png';
-import CV01 from '../assets/CV01.png';
-import AB01 from '../assets/AB01.png';
+import { Image } from "astro:assets";
 
-import ProductItem from '../components/ProductItem.astro';
-import Cart from '../components/Cart.jsx';
-import '../styles/Cart.css'; // O el nombre de tu archivo
+import TSV01 from "../../public/Merch/TSV01.png";
+import TSV02 from "../../public/Merch/TSV02.png";
+import TSV03 from "../../public/Merch/TSV03.png";
+import TSV04 from "../../public/Merch/TSV04.png";
+import TSV05 from "../../public/Merch/TSV05.png";
 
+import TB01 from "../../public/Merch/TB01.png";
+import TB02 from "../../public/Merch/TB02.png";
+
+import CPV1 from "../../public/Merch/CPV1.png";
+import CPV2 from "../../public/Merch/CPV2.png";
+
+import BTV1 from "../../public/Merch/BTV1.png";
+import BTV2 from "../../public/Merch/BTV2.png";
+
+import ABV1 from "../../public/Merch/ABV1.png";
+
+import ProductItem from "../components/ProductItem.astro";
+import Cart from "../components/Cart.jsx";
+import "../styles/Cart.css"; // O el nombre de tu archivo
 ---
 
 <Layout>
-    <div class="merch-container">
-        <div class="merch-shared">
-            <h1 class="merch-title">MERCH OFICIAL</h1>
+  <GalleryImg client:load images={images} />
+  <div class="merch-container">
+    <div class="merch-shared">
+      <h1 class="merch-title">MERCH OFICIAL</h1>
 
-            <Cart client:load />
-        </div>
-        
-        <div class="products-grid">
-            <ProductItem id="ts1" imgSrc={TS01} altText="T-Shirt Negra" productName="T-Shirt Vilevo Neza" price={250.00} showSize={true} />
-            <ProductItem id="ts2" imgSrc={TS02} altText="T-Shirt Negra" productName="T-Shirt Vilevo Space Wave" price={250.00} showSize={true} />
-            <ProductItem id="ts3" imgSrc={TS03} altText="T-Shirt Negra" productName="T-Shirt Vilevo Logo" price={250.00} showSize={true} />
-            <ProductItem id="tb1" imgSrc={TB01} altText="Tote Bag" productName="Tote Bag Vilevo M1" price={150.00} showSize={false} />
-            <ProductItem id="tb2" imgSrc={TB02} altText="Tote Bag" productName="Tote Bag Vilevo M2" price={150.00} showSize={false} />
-            <ProductItem id="cv1" imgSrc={CV01} altText="Gorra" productName="Cap Vilevo Black" price={100.00} showSize={false} />
-            <ProductItem id="ab1" imgSrc={AB01} altText="Album" productName="Album Vilevo" price={200.00} showSize={false} />
-        </div>
-
+      <Cart client:load />
     </div>
+
+    <div class="products-grid">
+      <ProductItem
+        id="ts1"
+        imgSrc={TSV01}
+        altText="T-Shirt Negra M1"
+        productName="T-Shirt Vilevo Logo G"
+        price={250.0}
+        showSize={true}
+      />
+      <ProductItem
+        id="ts2"
+        imgSrc={TSV02}
+        altText="T-Shirt Negra M2"
+        productName="T-Shirt Vilevo Neza"
+        price={250.0}
+        showSize={true}
+      />
+      <ProductItem
+        id="ts3"
+        imgSrc={TSV03}
+        altText="T-Shirt Negra M3"
+        productName="T-Shirt Vilevo Space"
+        price={250.0}
+        showSize={true}
+      />
+      <ProductItem
+        id="ts4"
+        imgSrc={TSV04}
+        altText="T-Shirt Negra M4"
+        productName="T-Shirt Vilevo Un Sueño"
+        price={250.0}
+        showSize={true}
+      />
+      <ProductItem
+        id="ts5"
+        imgSrc={TSV05}
+        altText="T-Shirt Negra M5"
+        productName="T-Shirt Vilevo Logo L"
+        price={250.0}
+        showSize={true}
+      />
+
+      <ProductItem
+        id="tb1"
+        imgSrc={TB01}
+        altText="Tote Bag M1"
+        productName="Tote Bag Vilevo Coyote"
+        price={200.0}
+        showSize={false}
+      />
+      <ProductItem
+        id="tb2"
+        imgSrc={TB02}
+        altText="Tote Bag M2"
+        productName="Tote Bag Vilevo Logo"
+        price={200.0}
+        showSize={false}
+      />
+
+      <ProductItem
+        id="cv1"
+        imgSrc={CPV1}
+        altText="Gorra Vilevo M1"
+        productName="Cap Vilevo Letras"
+        price={200.0}
+        showSize={false}
+      />
+      <ProductItem
+        id="cv2"
+        imgSrc={CPV2}
+        altText="Gorra Vilevo M2"
+        productName="Cap Vilevo Logo"
+        price={200.0}
+        showSize={false}
+      />
+
+      <ProductItem
+        id="bt1"
+        imgSrc={BTV1}
+        altText="Boton Vilevo M1"
+        productName="Botón Vilevo"
+        price={30.0}
+        showSize={false}
+      />
+      <ProductItem
+        id="bt2"
+        imgSrc={BTV2}
+        altText="Botón Vilevo M2"
+        productName="Cap Vilevo Logo"
+        price={30.0}
+        showSize={false}
+      />
+
+      <ProductItem
+        id="ab1"
+        imgSrc={ABV1}
+        altText="Album"
+        productName="Album Vilevo"
+        price={200.0}
+        showSize={false}
+      />
+    </div>
+  </div>
 </Layout>

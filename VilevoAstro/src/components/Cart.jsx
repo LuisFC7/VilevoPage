@@ -12,6 +12,8 @@ export default function Cart() {
 
       const { id: productId, name, price, size, quantity } = product;
 
+      const adjustedPrice = ['XL', '2XL'].includes(size) ? price + 20 : price;
+      
       const existingItem = cartItems.find(
         (item) => item.id === productId && item.size === size
       );
@@ -30,7 +32,7 @@ export default function Cart() {
           {
             id: productId,
             name,
-            price,
+            price:adjustedPrice,
             size,
             quantity,
           },
