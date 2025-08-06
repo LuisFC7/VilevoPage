@@ -28,6 +28,8 @@ export default function CheckoutCart() {
           </li>
         ))}
       </ul>
+
+      <p>Nota importante: El costo de envío no está incluido y está sujeto a variaciones según el proveedor de paquetería y la localidad de destino. Por lo tanto, una vez confirmada tu compra, te enviaremos el total a pagar (incluyendo envío)</p>
       <strong>Subtotal: ${total.toFixed(2)}</strong>
     </div>
   );
